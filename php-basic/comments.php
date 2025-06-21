@@ -6,15 +6,11 @@
     <title>Document</title>
 </head>
 <body>
-    <?php
-    $days ="Saturday";
-    $Days ="Friday";
-    $DAYS ="Tuesday";
-
-    echo $days." ".$Days." ".$DAYS;
-    ?>
-
-
-
+    <!-- comments -->
+<?php
+// type 1
+#type 2
+/* type 3 */
+?>
 </body>
 </html>
