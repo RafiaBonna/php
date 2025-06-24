@@ -22,6 +22,11 @@ These functions handle numerical operations, such as calculating square roots, r
 String Functions:
 These functions manipulate strings, like finding the length of a string, converting case, or searching for substrings. 
 Date & Time Functions:
-These functions work with dates and times, such as formatting them, converting between formats, or calculating time differences.  
+These functions work with dates and times, such as formatting them, converting between formats, or calculating time differences.
+  <!-- New Line -->
+  <h1> Definition and Usage [Rand]</h1>
+The rand() function generates a random integer. 
+Example tip: If you want a random integer between 10 and 100 (inclusive), use rand (10,100). 
+Tip: As of PHP 7.1, the rand() function has been an alias of the mt_rand() function.
 </body>
 </html>
