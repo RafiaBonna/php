@@ -14,7 +14,7 @@
     }
     number();
      echo "<br>";
-     //   Round[it shows result with 0 or 1]
+     //   Round[it convert decimel to number]
       function number2(){
         echo ("Round: ".round(34.5545));
       }
