@@ -6,10 +6,6 @@
     <title>Document</title>
 </head>
 <body>
-   <?php 
-//    index array (automatically or manually)
-// automatically
-
-   ?> 
+    
 </body>
 </html>
