@@ -16,9 +16,9 @@
         $data = $_POST['num'];
 
         if ($data % 2 == 0) {
-            echo "$data is an Even number.";
+            echo "<h3>$data is an Even number.</h3>";
         } else {
-            echo "$data is an Odd number.";
+            echo "<h3>$data is an Odd number.</h3>";
         }
     }
     ?>
