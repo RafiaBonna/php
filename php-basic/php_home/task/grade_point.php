@@ -14,7 +14,7 @@
     <?php
     if (isset($_POST['submit'])) {
         $result = $_POST['result'];
-        $grade = "";
+        $grade = ""; // used null for changing result 
 
         if ($result >= 80 && $result <= 100) {
             $grade = "5.00 (A+)";
