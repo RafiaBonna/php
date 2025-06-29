@@ -28,7 +28,7 @@
         }
 
         if ($isPrime) {
-            echo "<h3>$num is a Prime Number ✅</h3>";
+            echo "<h3>$num is a Prime Number.</h3>";
         } else {
             echo "<h3>$num is NOT a Prime Number </h3>";
         }
