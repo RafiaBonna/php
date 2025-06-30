@@ -22,6 +22,17 @@ public function display(){
     echo "Bird";
 }
     }
+    class ambar extends  Forest{ 
+    public function getName(){ 
+        echo "On this Earth";
+    }
+  
+    public function display(){ 
+        echo "Birdy";
+    }
+}
+$add = new ambar;
+$add->getName();
     ?>
 </body>
 </html>
