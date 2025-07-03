@@ -19,7 +19,7 @@
             if (in_array($input, $vowels)) {
                 echo "<p>{$input} is a vowel.</p>";
             } else {
-                echo "<p>{$input} is a consonant.</p>";
+                echo "<p>{$input} is a Consonant.</p>";
             }
         } else {
             echo "<p>Please enter a single letter.</p>";
