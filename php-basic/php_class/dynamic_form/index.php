@@ -2,11 +2,11 @@
 require_once("student_class.php");
 
 if (isset($_POST["submit"])) {
-    $cname    = $_POST["cname"];
+    $cname  = $_POST["cname"];
     $cont = $_POST["cont"];
     $student = new FormDetails($cname, $cont);
     $student->dstore();
-    echo "Success!";
+    echo "Successful!";
 }
 ?>
 <!DOCTYPE html>
@@ -24,7 +24,7 @@ if (isset($_POST["submit"])) {
       Contact:<br>
       <input type="number" name="cont" id="cont" required><br><br>
 
-      <input type="submit" name="submit" value="Submit">
+      <input type="submit" name="submit" value="Submit" style="width: 55px; background-color: aqua;">
   </form>
 </body>
 </html>
