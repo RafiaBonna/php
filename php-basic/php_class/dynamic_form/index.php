@@ -6,7 +6,7 @@ if (isset($_POST["submit"])) {
     $cont = $_POST["cont"];
     $student = new FormDetails($cname, $cont);
     $student->dstore();
-    echo "Successful!";
+    echo "<h2>Successful!</h2>";
 }
 ?>
 <!DOCTYPE html>
