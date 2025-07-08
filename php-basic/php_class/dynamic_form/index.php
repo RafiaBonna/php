@@ -43,5 +43,8 @@ if (isset($_POST["submit"])) {
       </fieldset>
   </form>
   </div>
+  <?php
+  FormDetails::display_students();
+  ?>
 </body>
 </html>
