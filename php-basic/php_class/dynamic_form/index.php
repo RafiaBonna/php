@@ -4,9 +4,14 @@ require_once("student_class.php");
 if (isset($_POST["submit"])) {
     $cname  = $_POST["cname"];
     $cont = $_POST["cont"];
-    $student = new FormDetails($cname, $cont);
+    if(preg_match("/^[A-Z,a-z]{5,15}$/",$cname)){
+ $student = new FormDetails($cname, $cont);
     $student->dstore();
     echo "<h2>Successful!</h2>";
+    }else{
+        echo "Invalid name !";
+    }
+   
 }
 ?>
 <!DOCTYPE html>
