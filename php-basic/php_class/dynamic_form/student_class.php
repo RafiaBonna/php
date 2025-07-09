@@ -25,7 +25,14 @@ class FormDetails{
   public function dstore(){
     file_put_contents(self::$file_path,$this->data_store(),FILE_APPEND);
   }  
-  
+ public static function display_students(){
+  $student=file(self::$file_path);
+  echo "<b>Name|Contact</b> <br/>";
+  foreach($student as $m){
+    list($cname,$cont)=explode(",",trim($m));
+    echo "$cname|$cont<br/>";
+  }
+ } 
   
 }
 ?>
