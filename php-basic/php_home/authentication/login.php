@@ -20,21 +20,76 @@ if (isset($_POST["Login"])) {
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
+    <style>
+        body {
+            background-color: #f0f8ff;
+            font-family: Arial, sans-serif;
+        }
+
+        .login-container {
+            width: 350px;
+            background-color: #5945a0bd;
+            padding: 30px;
+            margin: 80px auto;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .login-container input[type="text"],
+        .login-container input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 6px;
+            margin-bottom: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .login-container input[type="submit"] {
+            width: 100%;
+            padding: 12px;
+            background-color: #f899d39d;
+            border: none;
+            color: white;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .login-container input[type="submit"]:hover {
+            background-color: #5945a0bd;
+        }
+
+        .error-message {
+            color: red;
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+    </style>
 </head>
 <body>
-<h3><?php echo isset($msg) ? $msg : ""; ?></h3>
-<form action="#" method="post">
-    <div>
-        Username:<br>
+
+<div class="login-container">
+    <h2>Login Information</h2>
+    
+    <?php if (isset($msg)) { echo "<div class='error-message'>$msg</div>"; } ?>
+
+    <form action="#" method="post">
+        Username:
         <input type="text" name="username" required>
-    </div>
-    <div>
-        Password:<br>
+
+        Password:
         <input type="password" name="password" required>
-    </div><br>
-    <div>
+
         <input type="submit" name="Login" value="Log In">
-    </div>
-</form>
+    </form>
+</div>
+
 </body>
 </html>
