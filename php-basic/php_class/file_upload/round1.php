@@ -10,7 +10,7 @@
 <html>
 <body>
    <form action="#" method="POST" enctype="multipart/form-data">
-      <p><input type="file" name="file"></p>
+      <p><input type="newfile" name="newfile"></p>
       <p><input type ="submit" value="submit"></p>
    </form>
 </body>
