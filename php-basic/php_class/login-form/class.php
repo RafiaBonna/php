@@ -29,10 +29,10 @@
     }
 public static function display_result(){
     $desh=file(self::$file_path);
-    echo"<b>Student ID|Name|Email|Batch</b> <br/>";
+    echo"<b>Student ID |Name |Email |Batch</b> <br/>";
     foreach($desh as $a){
-        list($roll,$name,$email,$batch)=explode(",",trim($a));
-        echo "$roll|$name|$email|$batch <br/>";
+        list($id,$name,$email,$batch)=explode(",",trim($a));
+        echo "$id|$name|$email|$batch <br/>";
     }
 }
 

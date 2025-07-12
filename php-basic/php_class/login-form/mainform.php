@@ -35,6 +35,7 @@ if(!isset($_SESSION["sname"])){
 </head>
 <body>
     <div>
+        <a href="close.php">another</a>
         <form method="POST" action="#">
         <fieldset>
             <legend style="text-align: center; font-weight: bolder; font-size: larger; color: black;"> Registration Form</legend>
