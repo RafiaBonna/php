@@ -15,7 +15,7 @@ if(isset($_POST['submit'])){
     <title>Document</title>
 </head>
 <body>
-  <div style=" width:400px; margin:10px auto">
+  <div style=" width:350px; margin:10px auto">
 <form action="#" method="post" enctype="multipart/form-data">
 <fieldset>
 <input type="file" name="newfile"><br><br>
@@ -23,11 +23,14 @@ if(isset($_POST['submit'])){
 </fieldset>
 </form> 
 <?php
-if(isset($_POST['submit'])){
-
-  echo "<img src='pic/$name' width='300px'>";
-}
-
-?> 
+    if(isset($_POST['submit'])){
+      echo "<img src='pic/$name' width='300px'><br>";
+      echo "Filename: " . $_FILES['newfile']['name']."<br>";
+      echo "Type : " . $_FILES['newfile']['type'] ."<br>";
+      echo "Size : " . $_FILES['newfile']['size'] ."<br>";
+      echo "Temp name: " . $_FILES['newfile']['tmp_name'] ."<br>";
+      echo "Error : " . $_FILES['newfile']['error'] . "<br>";
+    }
+    ?> 
 </body>
 </html>

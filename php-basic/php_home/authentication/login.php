@@ -28,7 +28,7 @@ if (isset($_POST["Login"])) {
 
         .login-container {
             width: 350px;
-            background-color: #5945a0bd;
+            background-color: #bcaeecbd;
             padding: 30px;
             margin: 80px auto;
             border-radius: 10px;
@@ -53,7 +53,7 @@ if (isset($_POST["Login"])) {
         .login-container input[type="submit"] {
             width: 100%;
             padding: 12px;
-            background-color: #f899d39d;
+            background-color: #5f38dfbd;
             border: none;
             color: white;
             font-weight: bold;
