@@ -10,7 +10,7 @@ if(isset($_POST['submit'])){
 
     if($Kb>400){
         echo "<b style='color: red;font-size: 16pt;'>File is Too Large!!</b>";
-    }elseif($type != "image/jpeg" && $type != "image/jpg" && $type != "image/png" && $type != "image/gif"){
+    }elseif($type != "image/jpeg" && $type != "image/jpg" && $type != "image/gif"){
             echo "<b style='color: red;font-size: 16pt;'>File Type is not Supported</b>";
             $support = 0;
     }else{
