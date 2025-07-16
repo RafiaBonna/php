@@ -1,4 +1,10 @@
 <?php
+session_start();
+if (!isset($_SESSION["sname"])) {
+    header("Location: login.php");
+    exit();
+}
+
 $imgDir = "pic/";
 $allowedTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/gif'];
 $maxSizeKb = 400;
@@ -45,7 +51,7 @@ if (isset($_POST['submit'])) {
         .container {
             max-width: 700px;
             margin: auto;
-            background: levenshtein;
+            background: #fff;
             padding: 30px;
             border-radius: 12px;
             box-shadow: 0 0 20px rgba(0,0,0,0.1);
@@ -117,6 +123,27 @@ if (isset($_POST['submit'])) {
         .gallery img:hover {
             transform: scale(1.05);
         }
+
+        .logout-btn {
+            display: inline-block;
+            background: #dc3545;
+            color: white;
+            padding: 10px 25px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 16px;
+            margin-top: 20px;
+            transition: background 0.3s ease;
+        }
+
+        .logout-btn:hover {
+            background: #c82333;
+        }
+
+        .button-row {
+            text-align: center;
+            margin-top: 30px;
+        }
     </style>
 </head>
 <body>
@@ -139,12 +166,11 @@ if (isset($_POST['submit'])) {
         </div>
     </div>
 <?php endif; ?>
-   <div class="button-row">
-            <form action="login.php" method="get">
-                <button type="submit" class="logout-btn">Logout</button>
-            </form>
-        </div>
-    </div>
+
+<div class="button-row">
+    <a href="logout.php" class="logout-btn">Logout</a>
+
+</div>
 
 </body>
 </html>
