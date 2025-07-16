@@ -8,7 +8,7 @@ if (isset($_POST["Login"])) {
         list($_username, $_password) = explode(",", trim($line));
         if (trim($_username) === $username && trim($_password) === $password) {
             $_SESSION["sname"] = $username;
-            header("location:mainform.php");
+            header("location:step6.php");
             exit();
         }
     }
