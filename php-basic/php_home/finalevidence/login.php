@@ -33,9 +33,11 @@ if (isset($_POST["Login"])) {
     <h2>Login</h2>
     <?php if (isset($msg)) echo "<p style='color:red;'>$msg</p>"; ?>
     <form method="post">
+        <fieldset>
         Username: <input type="text" name="username" required><br> <br>
         Password: <input type="password" name="password" required><br> <br>
         <input type="submit" name="Login" value="Log In">
+        </fieldset>
     </form>
 </body>
 </html>
