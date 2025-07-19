@@ -23,7 +23,7 @@ if (isset($_POST["Login"])) {
     $msg = "Invalid username or password!";
 }
 ?>
-<!-- HTML Form -->
+<!-- HTML Form start here-->
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,7 +33,7 @@ if (isset($_POST["Login"])) {
     <h2>Login</h2>
     <?php if (isset($msg)) echo "<p style='color:red;'>$msg</p>"; ?>
     <form method="post">
-        Username: <input type="text" name="username" required><br>
+        Username: <input type="text" name="username" required><br> <br>
         Password: <input type="password" name="password" required><br>
         <input type="submit" name="Login" value="Log In">
     </form>

@@ -54,7 +54,6 @@ if (isset($_POST['submit'])) {
             <img src="pic/<?php echo $img; ?>" width="150">
         <?php endforeach; ?>
     <?php endif; ?>
-
     <br><br>
     <a href="logout.php">Logout</a>
 </body>
