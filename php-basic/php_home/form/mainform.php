@@ -29,7 +29,7 @@ if (isset($_POST["submit"])) {
     <title>Document</title>
     <style>
         div{
-            background-color: #d8bfd8ff;
+            background-color: 	#A7C7E7;
             width: 200px;
             height: 240px;
             margin: 10px;
