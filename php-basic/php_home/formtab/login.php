@@ -28,11 +28,11 @@ if (isset($_POST["Login"])) {
 
         .login-container {
             width: 350px;
-            background-color: #bcaeecbd;
+            background-color: #A7C7E7;
             padding: 30px;
             margin: 80px auto;
             border-radius: 10px;
-            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            box-shadow: #5883adff;
         }
 
         h2 {
@@ -53,7 +53,7 @@ if (isset($_POST["Login"])) {
         .login-container input[type="submit"] {
             width: 100%;
             padding: 12px;
-            background-color: #5f38dfbd;
+            background-color: #6281a0ff;
             border: none;
             color: white;
             font-weight: bold;
@@ -62,7 +62,7 @@ if (isset($_POST["Login"])) {
         }
 
         .login-container input[type="submit"]:hover {
-            background-color: #5945a0bd;
+            background-color: #45505cff;
         }
 
         .error-message {
