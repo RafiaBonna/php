@@ -10,27 +10,27 @@
     class student{
          private $id;
         private $name;
-         private $batch;
+         private $email;
        
-        public static $file_path="collect.txt";
-   function __construct($_id,$_name,$_batch) {
+        public static $file_path="store.txt";
+   function __construct($_id,$_name,$_email) {
      $this->id= $_id;
     $this->name= $_name;
-    $this->batch= $_batch;
+    $this->email= $_email;
    
    }
      public function info(){
-        return $this->id.",".$this->name.",".$this->batch.PHP_EOL;
+        return $this->id.",".$this->name.",".$this->email.PHP_EOL;
     }
     public function store(){
         file_put_contents(self::$file_path,$this->info(),FILE_APPEND);
     }
 public static function display_result(){
     $desh=file(self::$file_path);
-    echo"<b>Student ID|Name|Batch</b> <br/>";
+    echo"<b>Student ID|Name|Email</b> <br/>";
     foreach($desh as $a){
-        list($roll,$name,$batch)=explode(",",trim($a));
-        echo "$roll|$name|$batch <br/>";
+        list($id,$name,$email)=explode(",",trim($a));
+        echo "$id|$name|$email <br/>";
     }
 }
 
