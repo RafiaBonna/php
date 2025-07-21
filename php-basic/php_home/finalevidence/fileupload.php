@@ -1,19 +1,19 @@
 <?php
 session_start();
 
-// লগইন না করলে login.php তে ফেরত
+// return to login
 if (!isset($_SESSION["sname"])) {
     header("Location: login.php");
     exit();
 }
 
-// সেটআপ
+// SetUp
 $imgDir = "pic/";
 $allowedTypes = ['image/jpeg', 'image/png', 'image/gif'];
 $maxSizeKb = 400;
 $uploadedImages = [];
 
-// ফাইল আপলোড চেক
+// Check file upload
 if (isset($_POST['submit'])) {
     foreach ($_FILES['file']['name'] as $i => $name) {
         $tmp = $_FILES['file']['tmp_name'][$i];
@@ -40,13 +40,36 @@ if (isset($_POST['submit'])) {
 <!-- HTML PART -->
 <!DOCTYPE html>
 <html>
-<head><title>Upload</title></head>
+<head><title>Upload</title>
+<style>
+    div{
+     background-color:skyblue;
+            width: 350px;
+            margin: 10px;
+            padding: 10px;
+            border-radius: 10px;
+            font-weight:bolder;  
+    }
+      .logout-btn {
+            background: #2619e6ff;
+            color: white;
+            padding: 5px 5px;
+            border-radius: 6px;
+            font-size: 14px;
+            text-decoration:none;
+        }
+</style>
+</head>
 <body>
-    <h2>Upload Photos</h2>
+    <div>
     <form method="post" enctype="multipart/form-data">
-        <input type="file" name="file[]" multiple required><br>
+        <fieldset>
+            <legend style="text-align:center">Upload Photos</legend>
+        <input type="file" name="file[]" multiple required><br> <br>
         <input type="submit" name="submit" value="Upload">
+        </fieldset>
     </form>
+    </div>
 
     <?php if (!empty($uploadedImages)): ?>
         <h3>Uploaded Images</h3>
@@ -55,6 +78,6 @@ if (isset($_POST['submit'])) {
         <?php endforeach; ?>
     <?php endif; ?>
     <br><br>
-    <a href="logout.php">Logout</a>
+    <a href="logout.php" class="logout-btn">Logout</a>
 </body>
 </html>
