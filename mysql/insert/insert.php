@@ -1,21 +1,20 @@
 <?php
-$dbase =mysqli_connect('localhost','root','','crud-one');
+$db =mysqli_connect('localhost','root','','salary_table');
 if(isset($_POST['submit'])){
-    $i=$_POST['id'];
-    $n=$_POST['name'];
-    $e=$_POST['email'];
-    $s=$_POST['salary'];
+    $n=$_POST['sname'];
+    $e=$_POST['semail'];
+    $s=$_POST['ssalary'];
 
-$sql="INSERT INTO employee_details(id,username,email,salary) VALUES ('$i','$n','$e','$s')";
+$sql="INSERT INTO employee_details(username,email,salary) VALUES ('$n','$e','$s')";
 
-if(mysqli_query($dbase,$sql)==TRUE){
-    echo "DATA INSERTED";
+if(mysqli_query($db,$sql) == TRUE){
+    echo "DATA INSERTED !";
     header ('location:connectionview.php');
 }else{
-    echo "NOT INSERTED";
+    echo "NOT INSERTED !";
 }
 }
-
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -27,25 +26,22 @@ if(mysqli_query($dbase,$sql)==TRUE){
 </head>
 
 <div style="background-color: lavender; width: 30%; margin-left: 20px;">
-    <body style="background-image: url(pexels-photo-3658208);
-background-repeat: no-repeat;
-background-attachment: auto;
-background-position: cover;">
-   
-    <form action="">
+    <body >
+    <form  method="POST">
         <fieldset>
             <legend style = "text-align:center">Information Form</legend>
-            ID: <br>
-            <input type="Number" name="id"> <br> <br>
             Username: <br>
-            <input type="text" name="name"> <br> <br> 
+            <input type="text" name="sname"> <br> <br> 
             Email : <br>
-            <input type="email" name="email"> <br> <br>
+            <input type="email" name="semail"> <br> <br>
             Salary: <br>
-            <input type="Number" name="salary"> <br> <br>
-        <input type="Submit" name="Submit" value="submit">
+            <input type="number" name="ssalary"> <br> <br>
+        <input type="submit" name="submit" value="submit">
         </fieldset>
     </form>
 </div>    
 </body>
 </html>
+
+
+
