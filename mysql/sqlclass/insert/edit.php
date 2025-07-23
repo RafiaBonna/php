@@ -29,7 +29,7 @@ if(isset($_POST['edit'])){
                  } else{
                     echo $sqli1 . "Data not update";
                  }
-}
+} 
 
 ?>
 <!DOCTYPE html>
