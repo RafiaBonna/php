@@ -70,7 +70,9 @@ while(list($_id,$_name,$_email,$_salary) = $employee_details->fetch_row()){
     <td> 
     <a href ='delete.php?deleteid=$_id'>
     Delete
-    </a>
+    </a> ||
+    <a href='edit.php?id=$_id'> 
+							<span>Edit</span> </a>
     </td>
     </tr>";
 }
