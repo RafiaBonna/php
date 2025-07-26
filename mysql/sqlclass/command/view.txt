@@ -1,0 +1,8 @@
+drop view if exists departments;
+create view departments as select 
+products.id,
+products.name,
+products.price,
+user.name mname,
+users.contact
+from products, users where users.id=p.user_id;
