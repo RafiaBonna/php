@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 26, 2025 at 05:15 AM
+-- Generation Time: Jul 26, 2025 at 09:11 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -20,6 +20,16 @@ SET time_zone = "+00:00";
 --
 -- Database: `salary_table`
 --
+
+DELIMITER $$
+--
+-- Procedures
+--
+CREATE DEFINER=`root`@`localhost` PROCEDURE `call_users` (IN `username` VARCHAR(30), IN `email` VARCHAR(30), IN `salary` DECIMAL(10,2) UNSIGNED)   BEGIN
+INSERT INTO employee_details(username,email,salary) VALUES(username,email,salary);
+END$$
+
+DELIMITER ;
 
 -- --------------------------------------------------------
 
