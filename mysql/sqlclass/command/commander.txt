@@ -1,0 +1,156 @@
+Microsoft Windows [Version 10.0.19045.6093]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\xampp\mysql\bin>mysql -u root -p
+Enter password:
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 74
+Server version: 10.4.32-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| e_commerce         |
+| information_schema |
+| mysql              |
+| office_manage_db   |
+| performance_schema |
+| phpmyadmin         |
+| salary_table       |
+| test               |
+| trainee_table      |
++--------------------+
+9 rows in set (0.001 sec)
+
+MariaDB [(none)]> create database employee_management;
+Query OK, 1 row affected (0.001 sec)
+
+MariaDB [(none)]> use  employee_management;
+Database changed
+MariaDB [employee_management]> show databases;
++---------------------+
+| Database            |
++---------------------+
+| e_commerce          |
+| employee_management |
+| information_schema  |
+| mysql               |
+| office_manage_db    |
+| performance_schema  |
+| phpmyadmin          |
+| salary_table        |
+| test                |
+| trainee_table       |
++---------------------+
+10 rows in set (0.001 sec)
+
+MariaDB [employee_management]> CREATE TABLE employees (
+    ->     emp_id INT AUTO_INCREMENT PRIMARY KEY,
+    ->     emp_name VARCHAR(100) NOT NULL,
+    ->     emp_email VARCHAR(100) UNIQUE NOT NULL,
+    ->     emp_phone VARCHAR(15),
+    ->     department VARCHAR(50),
+    ->     salary DECIMAL(10,2),
+    ->     join_date DATE,
+    ->     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    -> );
+Query OK, 0 rows affected (0.031 sec)
+
+MariaDB [employee_management]> desc  employee_management;
+ERROR 1146 (42S02): Table 'employee_management.employee_management' doesn't exist
+MariaDB [employee_management]> desc employees;
++------------+---------------+------+-----+---------------------+----------------+
+| Field      | Type          | Null | Key | Default             | Extra          |
++------------+---------------+------+-----+---------------------+----------------+
+| emp_id     | int(11)       | NO   | PRI | NULL                | auto_increment |
+| emp_name   | varchar(100)  | NO   |     | NULL                |                |
+| emp_email  | varchar(100)  | NO   | UNI | NULL                |                |
+| emp_phone  | varchar(15)   | YES  |     | NULL                |                |
+| department | varchar(50)   | YES  |     | NULL                |                |
+| salary     | decimal(10,2) | YES  |     | NULL                |                |
+| join_date  | date          | YES  |     | NULL                |                |
+| created_at | timestamp     | NO   |     | current_timestamp() |                |
++------------+---------------+------+-----+---------------------+----------------+
+8 rows in set (0.019 sec)
+
+MariaDB [employee_management]> INSERT INTO employees (emp_name, emp_email, emp_phone, department, salary, join_date)
+    -> VALUES
+    -> ('Rafiq Hossain', 'rafiq@example.com', '01711112233', 'Sales', 35000.00, '2023-05-10'),
+    -> ('Nusrat Jahan', 'nusrat.jahan@example.com', '01822223344', 'HR', 42000.00, '2022-11-01'),
+    -> ('Tanvir Ahmed', 'tanvir.a@example.com', '01633334455', 'IT', 50000.00, '2021-08-15'),
+    -> INSERT INTO employees (emp_name, emp_email, emp_phone, department, salary, join_date)
+    -> VALUES
+    -> ('Rafiq Hossain', 'rafiq@example.com', '01711112233', 'Sales', 35000.00, '2023-05-10'),
+    -> ('Nusrat Jahan', 'nusrat.jahan@example.com', '01822223344', 'HR', 42000.00, '2022-11-01'),
+    -> ('Tanvir Ahmed', 'tanvir.a@example.com', '01633334455', 'IT', 50000.00, '2021-08-15'),
+    -> ('Shamima Akter', 'shamima.ak@example.com', '01544445566', 'Marketing', 37000.00, '2024-01-20');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'INSERT INTO employees (emp_name, emp_email, emp_phone, department, salary, jo...' at line 6
+MariaDB [employee_management]>  ('Shamima Akter', 'shamima.ak@example.com', '01544445566', 'Marketing', 37000.00, '2024-01-20');ghhfg;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''Shamima Akter', 'shamima.ak@example.com', '01544445566', 'Marketing', 37000....' at line 1
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'ghhfg' at line 1
+MariaDB [employee_management]> INSERT INTO employees (emp_name, emp_email, emp_phone, department, salary, join_date)
+    -> VALUES
+    -> ('Rafiq Hossain', 'rafiq@example.com', '01711112233', 'Sales', 35000.00, '2023-05-10'),
+    -> ('Nusrat Jahan', 'nusrat.jahan@example.com', '01822223344', 'HR', 42000.00, '2022-11-01'),
+    -> ('Tanvir Ahmed', 'tanvir.a@example.com', '01633334455', 'IT', 50000.00, '2021-08-15'),
+    -> ('Shamima Akter', 'shamima.ak@example.com', '01544445566', 'Marketing', 37000.00, '2024-01-20');
+Query OK, 4 rows affected (0.010 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+MariaDB [employee_management]> select * from employees;
++--------+---------------+--------------------------+-------------+------------+----------+------------+---------------------+
+| emp_id | emp_name      | emp_email                | emp_phone   | department | salary   | join_date  | created_at          |
++--------+---------------+--------------------------+-------------+------------+----------+------------+---------------------+
+|      1 | Rafiq Hossain | rafiq@example.com        | 01711112233 | Sales      | 35000.00 | 2023-05-10 | 2025-07-26 09:45:48 |
+|      2 | Nusrat Jahan  | nusrat.jahan@example.com | 01822223344 | HR         | 42000.00 | 2022-11-01 | 2025-07-26 09:45:48 |
+|      3 | Tanvir Ahmed  | tanvir.a@example.com     | 01633334455 | IT         | 50000.00 | 2021-08-15 | 2025-07-26 09:45:48 |
+|      4 | Shamima Akter | shamima.ak@example.com   | 01544445566 | Marketing  | 37000.00 | 2024-01-20 | 2025-07-26 09:45:48 |
++--------+---------------+--------------------------+-------------+------------+----------+------------+---------------------+
+4 rows in set (0.000 sec)
+
+MariaDB [employee_management]> CREATE TABLE departments (
+    ->     dept_id INT AUTO_INCREMENT PRIMARY KEY,
+    ->     dept_name VARCHAR(50) NOT NULL UNIQUE,
+    ->     location VARCHAR(100)
+    -> ('Shamima Akter', 'shamima.ak@example.com', '01544445566', 'Marketing', 37000.00, '2024-01-20');-0
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '('Shamima Akter', 'shamima.ak@example.com', '01544445566', 'Marketing', 37000...' at line 5
+    -> CREATE TABLE departments (
+    ->     id INT AUTO_INCREMENT PRIMARY KEY,
+    ->     dept_name VARCHAR(50) NOT NULL UNIQUE,
+    ->     location VARCHAR(100)
+    -> );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '-0
+CREATE TABLE departments (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    dept...' at line 1
+MariaDB [employee_management]> CREATE TABLE departments (
+    ->     id INT AUTO_INCREMENT PRIMARY KEY,
+    ->     dept_name VARCHAR(50) NOT NULL UNIQUE,
+    ->     location VARCHAR(100)
+    -> );
+Query OK, 0 rows affected (0.030 sec)
+
+MariaDB [employee_management]> desc departments;
++-----------+--------------+------+-----+---------+----------------+
+| Field     | Type         | Null | Key | Default | Extra          |
++-----------+--------------+------+-----+---------+----------------+
+| id        | int(11)      | NO   | PRI | NULL    | auto_increment |
+| dept_name | varchar(50)  | NO   | UNI | NULL    |                |
+| location  | varchar(100) | YES  |     | NULL    |                |
++-----------+--------------+------+-----+---------+----------------+
+3 rows in set (0.018 sec)
+
+MariaDB [employee_management]> INSERT INTO departments (dept_name, location) VALUES
+    -> ('HR', 'Dhaka'),
+    -> ('IT', 'Chattogram'),
+    -> ('Sales', 'Khulna'),
+    -> ('Marketing', 'Dhaka');
+Query OK, 4 rows affected (0.041 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+MariaDB [employee_management]>
