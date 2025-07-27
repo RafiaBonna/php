@@ -28,6 +28,7 @@ if(isset($_POST['submit'])){
             Price : <br>
             <input type="number" name="price"> <br> <br>
             User: <br>
+            <?php $product =$db->query(" select * from skin_cares");?>
             <input type="text" name="uid"> <br> <br>
         <input type="submit" name="submit" value="submit">
         </fieldset>
