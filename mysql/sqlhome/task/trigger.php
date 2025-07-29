@@ -1,5 +1,5 @@
 <?php  
-$db = new mysqli('localhost','root','','company');
+$db = new mysqli('localhost','root','','companies');
 
 // Manufacturer insert
 if(isset($_POST['btnSubmit'])){
