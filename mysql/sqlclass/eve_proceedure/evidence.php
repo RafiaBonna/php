@@ -21,6 +21,7 @@ if (isset($_POST['delmanufact'])) {
     $mid = $_POST['manufac'];
     $db->query("DELETE FROM manufacturer WHERE id = $mid");
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -189,9 +190,10 @@ if (isset($_POST['delmanufact'])) {
 
 <!-- Product Table -->
 <?php 
-$product = $db->query("SELECT p.id, p.name, p.price, m.name 
-                       FROM product p JOIN manufacturer m ON m.id = p.manufac_id");
-if ($product->num_rows > 0) {
+$sql ="SELECT * FROM view_product";
+$result =mysqli_query($db,$sql); 
+
+if ($result->num_rows > 0) {
     echo "<table border='1' width='80%' align='center'>
             <tr>
                 <th>ID</th>
@@ -199,7 +201,7 @@ if ($product->num_rows > 0) {
                 <th>Price</th>
                 <th>Manufacturer</th>
             </tr>";
-    while(list($pid, $pname, $price, $mname) = $product->fetch_row()){
+    while(list($pid, $pname, $price, $mname) = $result->fetch_row()){
         echo "<tr>
                 <td align='center'>$pid</td>
                 <td>$pname</td>
