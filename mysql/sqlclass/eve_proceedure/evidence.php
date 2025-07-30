@@ -117,11 +117,15 @@ if (isset($_POST['delmanufact'])) {
 <div class="forms-container">
     <!-- Add Manufacturer Form -->
     <form method="post">
-        <h3>Add Manufacturer</h3>
+        <h3 style="text-align:center;">Add Manufacturer</h3>
         <table>
             <tr>
                 <td><label>Name</label></td>
                 <td><input type="text" name="mname" required /></td>
+            </tr>
+             <tr>
+                <td><label>Address</label></td>
+                <td><input type="text" name="contact" required /></td>
             </tr>
             <tr>
                 <td><label>Contact</label></td>
@@ -135,7 +139,7 @@ if (isset($_POST['delmanufact'])) {
 
     <!-- Add Product Form -->
     <form method="post">
-        <h3>Add Product</h3>
+        <h3 style="text-align:center;">Add Product</h3>
         <table>
             <tr>
                 <td><label>Name</label></td>
@@ -166,7 +170,7 @@ if (isset($_POST['delmanufact'])) {
 
     <!-- Delete Manufacturer Form -->
     <form method="post">
-        <h3>Delete Manufacturer</h3>
+        <h3 style="text-align:center;">Delete Manufacturer</h3>
         <table>
             <tr>
                 <td><label>Manufacturer</label></td>
