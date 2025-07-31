@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 31, 2025 at 05:41 AM
+-- Generation Time: Jul 31, 2025 at 06:41 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -53,11 +53,8 @@ CREATE TABLE `manufacturer` (
 --
 
 INSERT INTO `manufacturer` (`id`, `name`, `address`, `contact`) VALUES
-(9, 'SAMSUNG', '', '9988776655'),
-(11, 'V & G', '', '0987654321'),
 (12, 'V & G', '', '9988776'),
-(13, 'Herlan', '', '0987654321'),
-(16, 'Walton', 'Bangladesh', '56788998');
+(17, 'SAMSUNG', 'Canada', '9988776');
 
 --
 -- Triggers `manufacturer`
@@ -87,18 +84,12 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`id`, `name`, `price`, `manufac_id`) VALUES
-(8, 'Tablet', 30000.00, 9),
-(10, 'Straightner', 6400.00, 11),
-(20, 'Straightner', 3000.00, 13),
-(22, 'Straightner', 3000.00, 13),
-(23, 'Straightner', 3000.00, 13),
-(24, 'bag', 3000.00, 13),
-(25, 'bag', 3000.00, 13),
-(26, 'bag', 3000.00, 13),
-(27, 'bag', 3000.00, 13),
-(28, 'Straightner', 3000.00, 13),
-(29, 'tv', 50666.00, 9),
-(30, 'Foundation', 3000.00, 9);
+(34, 'Straightner', 10000.00, 12),
+(35, 'bag', 3000.00, 12),
+(36, 'bag', 3000.00, 12),
+(37, 'bag', 3000.00, 12),
+(38, 'Tablet', 47000.00, 17),
+(39, 'Bracelet', 3000.00, 12);
 
 -- --------------------------------------------------------
 
@@ -108,9 +99,9 @@ INSERT INTO `product` (`id`, `name`, `price`, `manufac_id`) VALUES
 --
 CREATE TABLE `view_product` (
 `id` int(10)
-,`name` varchar(20)
+,`product_name` varchar(20)
 ,`price` double(10,2)
-,`manufac_id` int(10)
+,`manufacturer_name` varchar(20)
 );
 
 -- --------------------------------------------------------
@@ -120,7 +111,7 @@ CREATE TABLE `view_product` (
 --
 DROP TABLE IF EXISTS `view_product`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `view_product`  AS SELECT `product`.`id` AS `id`, `product`.`name` AS `name`, `product`.`price` AS `price`, `product`.`manufac_id` AS `manufac_id` FROM `product` WHERE `product`.`price` > 5000 ORDER BY `product`.`name` ASC ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `view_product`  AS SELECT `p`.`id` AS `id`, `p`.`name` AS `product_name`, `p`.`price` AS `price`, `m`.`name` AS `manufacturer_name` FROM (`product` `p` join `manufacturer` `m` on(`p`.`manufac_id` = `m`.`id`)) WHERE `p`.`price` > 5000 ;
 
 --
 -- Indexes for dumped tables
@@ -147,13 +138,13 @@ ALTER TABLE `product`
 -- AUTO_INCREMENT for table `manufacturer`
 --
 ALTER TABLE `manufacturer`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- Constraints for dumped tables

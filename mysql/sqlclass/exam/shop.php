@@ -1,5 +1,5 @@
 <?php
-$db = new mysqli('localhost', 'root', '', 'company');
+$db = new mysqli('localhost', 'root', '', 'shop_management');
 
 // Add Manufacturer
 if (isset($_POST['btnSubmit'])) {
