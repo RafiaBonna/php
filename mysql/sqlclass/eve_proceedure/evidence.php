@@ -4,8 +4,9 @@ $db = new mysqli('localhost', 'root', '', 'company');
 // Add Manufacturer
 if (isset($_POST['btnSubmit'])) {
     $mname = $_POST['mname'];
+    $add = $_POST['dress'];
     $contact = $_POST['contact'];
-    $db->query("CALL add_manufacture('$mname','$contact')");
+    $db->query("CALL add_manufacture('$mname','$add','$contact')");
 }
 
 // Add Product
@@ -96,7 +97,7 @@ if (isset($_POST['delmanufact'])) {
         }
 
         th {
-            background-color: #3498db;
+            background-color: #3498dbff;
             color: white;
             text-align: center;
         }
@@ -122,6 +123,10 @@ if (isset($_POST['delmanufact'])) {
             <tr>
                 <td><label>Name</label></td>
                 <td><input type="text" name="mname" required /></td>
+            </tr>
+             <tr>
+                <td><label>Address</label></td>
+                <td><input type="text" name="dress" required /></td>
             </tr>
             <tr>
                 <td><label>Contact</label></td>
