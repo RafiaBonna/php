@@ -47,7 +47,11 @@ if (isset($_POST['delmanufact'])) {
             </tr>
              <tr>
                 <td><label>Address</label></td>
+<<<<<<< HEAD
                 <td><input type="text" name="dress" required /></td>
+=======
+                <td><input type="text" name="contact" required /></td>
+>>>>>>> 70b3d7ebaaade8bb821d9c5caa8ed01a3a038909
             </tr>
             <tr>
                 <td><label>Contact</label></td>
